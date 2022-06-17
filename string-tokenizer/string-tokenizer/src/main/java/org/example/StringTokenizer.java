@@ -17,7 +17,7 @@ public class StringTokenizer
             throw new IllegalArgumentException("Delimiter must not be null or empty");
         }
 
-        this.string = string;
+        this.string = string.trim();
         this.delimiter = delimiter;
     }
 
