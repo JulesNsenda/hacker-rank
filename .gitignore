@@ -1,2 +1,8 @@
-target\*
+^target/.*$
+^.*\.iml$
+^(.*/)?\.idea/.*$
+^(.*/)?hs_err_pid\d+\.log$
+^.*\.iml~$
+^\.idea/codeStyles/Project\.xml$
 .idea
+target
