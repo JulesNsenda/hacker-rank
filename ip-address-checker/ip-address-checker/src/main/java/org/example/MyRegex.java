@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class MyRegex
 {
-    private static final String pattern = "((\\d{1,2}|([01])\\d{2}|2[0-4]\\d|25[0-5])(\\.)?){4}";
+    private static final String pattern = "((([01]?\\d?\\d|2[0-4]\\d|25[0-5])\\.){3}([01]?\\d?\\d|2[0-4]\\d|25[0-5]))\\b";
 
     public static boolean isValidIpAddress(String s)
     {
