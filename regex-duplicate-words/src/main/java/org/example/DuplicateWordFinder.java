@@ -9,7 +9,7 @@ public class DuplicateWordFinder
     {
     }
 
-    public static void removeDuplicate(String s)
+    public static String getUnDuplicateString(String s)
     {
         String regex = "\\b(\\w+)(\\s+\\1\\b)+";
 
@@ -20,5 +20,7 @@ public class DuplicateWordFinder
         while (m.find()){
             s = s.replaceAll(m.group(0), m.group(1));
         }
+
+        return s;
     }
 }
