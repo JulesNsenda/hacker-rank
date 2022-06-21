@@ -21,6 +21,7 @@
         <module>ip-address-checker</module>
         <module>java-anagram</module>
         <module>pattern-syntax-checker</module>
+        <module>regex-duplicate-words</module>
         <module>string-tokenizer</module>
     </modules>
 
