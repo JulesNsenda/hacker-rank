@@ -23,6 +23,7 @@
         <module>pattern-syntax-checker</module>
         <module>regex-duplicate-words</module>
         <module>string-tokenizer</module>
+        <module>valid-username</module>
     </modules>
 
     <dependencies>
