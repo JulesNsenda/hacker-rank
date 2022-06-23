@@ -11,7 +11,7 @@ public class UsernameValidator
 
     public static boolean isValidUsername(String username)
     {
-        String pattern = "^[aA-zZ]\\w{7,29}$";
+        String pattern = "^([A-Z]|[a-z])\\w{7,29}$";
         Matcher matcher = Pattern.compile(pattern).matcher(username);
         return matcher.find();
     }
