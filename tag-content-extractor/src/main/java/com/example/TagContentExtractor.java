@@ -18,7 +18,7 @@ public class TagContentExtractor
             return Optional.empty();
         }
 
-        return Optional.of(text.substring(text.indexOf(Objects.requireNonNull(startTag)) + startTag.length(), text.indexOf(Objects.requireNonNull(endTag))));
+        return Optional.of(text.substring(text.indexOf(startTag) + startTag.length(), text.indexOf(endTag)));
     }
 
     private static boolean isCorrespondingEndTag(String startTag, String endTag)
