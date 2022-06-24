@@ -53,10 +53,4 @@ public class TagContentExtractor
 
         return !tag.isEmpty() ? Optional.of(tag) : Optional.empty();
     }
-
-    public static void main(String[] args)
-    {
-        System.out.println(getContent("<h1>testing this</h1>").orElse("None"));
-
-    }
 }
