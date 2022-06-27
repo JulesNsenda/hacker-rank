@@ -1,6 +1,7 @@
 package com.example;
 
-import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TagContentExtractor
 {
@@ -8,48 +9,21 @@ public class TagContentExtractor
     {
     }
 
-    public static Optional<String> getContent(String text)
+    public static String getContent(String text)
     {
-        String startTag = getStartTag(text).orElse("");
-        String endTag = getEndTag(text).orElse("");
+        boolean matchFound = false;
+        Pattern r = Pattern.compile("<(.+)>([^<]+)</\\1>");
+        Matcher m = r.matcher(text);
 
-        if (!isCorrespondingEndTag(startTag, endTag)){
-            return Optional.empty();
+        String content = "";
+        while (m.find()){
+            content = m.group(2);
+            matchFound = true;
         }
 
-        return Optional.of(text.substring(text.indexOf(startTag) + startTag.length(), text.lastIndexOf(endTag)));
-    }
-
-    private static boolean isCorrespondingEndTag(String startTag, String endTag)
-    {
-        if (!endTag.contains("/")){
-            return false;
+        if (!matchFound){
+            content = "None";
         }
-
-        endTag = endTag.replaceAll("/", "");
-
-        return startTag.equals(endTag);
-    }
-
-    private static Optional<String> getStartTag(String text)
-    {
-        if (!text.contains("<")){
-            return Optional.empty();
-        }
-
-        String tag = text.substring(text.indexOf('<'), text.indexOf('>') + 1);
-
-        return !tag.isEmpty() ? Optional.of(tag) : Optional.empty();
-    }
-
-    private static Optional<String> getEndTag(String text)
-    {
-        if (!text.contains("</")){
-            return Optional.empty();
-        }
-
-        String tag = text.substring(text.lastIndexOf("</"), text.lastIndexOf('>') + 1);
-
-        return !tag.isEmpty() ? Optional.of(tag) : Optional.empty();
+        return content;
     }
 }
